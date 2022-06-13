@@ -9,6 +9,7 @@ dataset/exp_show/*
 *.dict
 *.ipynb_checkpoints
 *.html
+*.xlsx
 
 # Repo-specific GitIgnore ----------------------------------------------------------------------------------------------
 *.jpg
