@@ -1,4 +1,4 @@
-
+datasets/
 datasets/*
 dataset/exp_show/*
 *.csv
@@ -10,6 +10,9 @@ dataset/exp_show/*
 *.ipynb_checkpoints
 *.html
 *.xlsx
+*.cache
+train.cache
+val.cache
 
 # Repo-specific GitIgnore ----------------------------------------------------------------------------------------------
 *.jpg
