@@ -1,5 +1,6 @@
 
 
+
 def bbox_yolo2voc(bx, w, h):
     x_c = float(bx[0])*w
     y_c = float(bx[1])*h
@@ -32,11 +33,16 @@ def bbox_coco2voc(bbox):
     return bbox
 
 
-# def bbox_2coco2voc(bbox):
-#     w, h = bbox[2] - bbox[0], bbox[3] - bbox[1]
-#     bbox[0] = int(bbox[0] + w/2)
-#     bbox[1] = int(bbox[1] + h/2)
-#     bbox[2] = int(bbox[2] + w/2)
-#     bbox[3] = int(bbox[3] + h/2)
-#     return bbox
+def bbox_voc2yolo_df(df):
+    w =  df['width'].values
+    h =  df['height'].values
+    w_bbox = df['bx3'].values - df['bx1'].values
+    h_bbox = df['bx4'].values - df['bx2'].values
+    x_c = df['bx1'].values + w_bbox/2
+    y_c = df['bx2'].values + h_bbox/2
+    df.loc[:, 'bx1'] = x_c/w
+    df.loc[:, 'bx2'] = y_c/h
+    df.loc[:, 'bx3'] = w_bbox/w
+    df.loc[:, 'bx4'] = h_bbox/h    
+    return df
 
