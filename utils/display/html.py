@@ -22,6 +22,8 @@ def image_base64(im):
 def image_formatter(im):
     return f'<img src="data:image/jpeg;base64,{image_base64(im)}">'
 
+def png_formatter(im):
+    return f'<img src="data:image/png;base64,{image_base64(im)}">'
 
 # pants_pd['image'] = pants_pd.file.map(lambda f: get_thumbnail(f, size=250))
 # HTML(pants_pd[['name', 'image']].to_html(formatters={'image': image_formatter}, escape=False))
